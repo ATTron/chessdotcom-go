@@ -14,7 +14,7 @@ type UserInfo struct {
 }
 
 // GetTitledPlayers - Returns an array of all titled players of specific type (i.e. GM, WGM, IM, etc)
-func GetTitledPlayers(title string) []byte {
+func GetTitledPlayers(title string) map[string]interface{} {
 	reqURL := util.Join(util.BASE_URL, "/titled/", title)
 	resp, err := http.Get(reqURL)
 	util.Check(err)
@@ -26,7 +26,7 @@ func GetTitledPlayers(title string) []byte {
 }
 
 // GetUser - Returns basic info about a specific user
-func GetUser(username string) []byte {
+func GetUser(username string) map[string]interface{} {
 	reqURL := util.Join(util.PLAYER_URL, username)
 	resp, err := http.Get(reqURL)
 	util.Check(err)
@@ -38,7 +38,7 @@ func GetUser(username string) []byte {
 }
 
 // GetUserStats - Returns statistics about a specific user
-func GetUserStats(username string) []byte {
+func GetUserStats(username string) map[string]interface{} {
 	reqURL := util.Join(util.PLAYER_URL, username, "/stats")
 	resp, err := http.Get(reqURL)
 	util.Check(err)
@@ -50,7 +50,7 @@ func GetUserStats(username string) []byte {
 }
 
 // GetPlayerStatus (Currently Broken) - Returns T/F of players online status
-func GetPlayerStatus(username string) []byte {
+func GetPlayerStatus(username string) map[string]interface{} {
 	reqURL := util.Join(util.PLAYER_URL, username, "/is-online")
 	resp, err := http.Get(reqURL)
 	util.Check(err)
@@ -73,7 +73,7 @@ func GetAllData(username string) UserInfo {
 }
 
 // GetPlayerGames - Return current user games
-func GetPlayerGames(username string) []byte {
+func GetPlayerGames(username string) map[string]interface{} {
 	reqURL := util.Join(util.PLAYER_URL, username, "/games")
 	resp, err := http.Get(reqURL)
 	util.Check(err)
@@ -85,7 +85,7 @@ func GetPlayerGames(username string) []byte {
 }
 
 // GetPlayerGamesToMove - Return player who has to move
-func GetPlayerGamesToMove(username string) []byte {
+func GetPlayerGamesToMove(username string) map[string]interface{} {
 	reqURL := util.Join(util.PLAYER_URL, username, "/games/to-move")
 	resp, err := http.Get(reqURL)
 	util.Check(err)
@@ -97,7 +97,7 @@ func GetPlayerGamesToMove(username string) []byte {
 }
 
 // GetPlayerGamesMonthly - Return games the player has played in the past month
-func GetPlayerGamesMonthly(username string) []byte {
+func GetPlayerGamesMonthly(username string) map[string]interface{} {
 	reqURL := util.Join(util.PLAYER_URL, username, "/games/archives")
 	resp, err := http.Get(reqURL)
 	util.Check(err)
@@ -109,7 +109,7 @@ func GetPlayerGamesMonthly(username string) []byte {
 }
 
 // GetPlayerArchive - Return games the player has played in a specific month
-func GetPlayerGamesArchive(username string, year int, month int) []byte {
+func GetPlayerGamesArchive(username string, year int, month int) map[string]interface{} {
 	reqURL := util.Join(util.PLAYER_URL, username, "/games/", strconv.Itoa(year), "/", strconv.Itoa(month))
 	resp, err := http.Get(reqURL)
 	util.Check(err)
@@ -121,7 +121,7 @@ func GetPlayerGamesArchive(username string, year int, month int) []byte {
 }
 
 // GetPlayerGamesArchivePGN (Currently broken) - Return games the player has played in a specific month
-func GetPlayerGamesArchivePGN(username string, year int, month int) []byte {
+func GetPlayerGamesArchivePGN(username string, year int, month int) map[string]interface{} {
 	reqURL := util.Join(util.PLAYER_URL, username, "/games/", strconv.Itoa(year), "/", strconv.Itoa(month), "/pgn")
 	resp, err := http.Get(reqURL)
 	util.Check(err)
@@ -133,7 +133,7 @@ func GetPlayerGamesArchivePGN(username string, year int, month int) []byte {
 }
 
 // GetPlayerMatches - Returns list of team matches the player is currently registered in
-func GetPlayerMatches(username string) []byte {
+func GetPlayerMatches(username string) map[string]interface{} {
 	reqURL := util.Join(util.PLAYER_URL, username, "/matches")
 	resp, err := http.Get(reqURL)
 	util.Check(err)
@@ -145,7 +145,7 @@ func GetPlayerMatches(username string) []byte {
 }
 
 // GetPlayerTournaments
-func GetPlayerTournaments(username string) []byte {
+func GetPlayerTournaments(username string) map[string]interface{} {
 	reqURL := util.Join(util.PLAYER_URL, username, "/tournaments")
 	resp, err := http.Get(reqURL)
 	util.Check(err)

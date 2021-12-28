@@ -7,7 +7,7 @@ import (
 )
 
 // GetStreamers - Returns details about chess.com streamers
-func GetStreamers() []byte {
+func GetStreamers() map[string]interface{} {
 	reqURL := util.Join(util.STREAMER_URL)
 	resp, err := http.Get(reqURL)
 	util.Check(err)
@@ -19,7 +19,7 @@ func GetStreamers() []byte {
 }
 
 // GetLeaderboard - Returns details about the chess.com leaderboard
-func GetLeaderboard() []byte {
+func GetLeaderboard() map[string]interface{} {
 	reqURL := util.Join(util.LEADERBOARD_URL)
 	resp, err := http.Get(reqURL)
 	util.Check(err)
