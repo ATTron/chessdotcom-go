@@ -18,4 +18,6 @@ An unofficial, simple, lighweight API wrapper for chess.com written in go
     }
 ```
 
-Complete Documentation can be found at https://pkg.go.dev/github.com/ATTron/chessdotcom-go 
+Endpoints used as defined at https://www.chess.com/news/view/published-data-api  
+
+Complete documentation can be found at https://pkg.go.dev/github.com/ATTron/chessdotcom-go 

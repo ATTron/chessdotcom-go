@@ -8,7 +8,7 @@ import (
 )
 
 // GetDailyTeamMatch - Returns daily team match details
-func GetDailyTeamMatch(matchID int) string {
+func GetDailyTeamMatch(matchID int) []byte {
 	reqURL := util.Join(util.MATCH_URL, strconv.Itoa(matchID))
 	resp, err := http.Get(reqURL)
 	util.Check(err)
@@ -20,7 +20,7 @@ func GetDailyTeamMatch(matchID int) string {
 }
 
 // GetDailyTeamMatchBoard - Returns daily team match board details
-func GetDailyTeamMatchBoard(matchID int, board int) string {
+func GetDailyTeamMatchBoard(matchID int, board int) []byte {
 	reqURL := util.Join(util.MATCH_URL, strconv.Itoa(matchID), "/", strconv.Itoa(board))
 	resp, err := http.Get(reqURL)
 	util.Check(err)
@@ -32,7 +32,7 @@ func GetDailyTeamMatchBoard(matchID int, board int) string {
 }
 
 // GetLiveTeamMatch - Returns live team match details
-func GetLiveTeamMatch(matchID int) string {
+func GetLiveTeamMatch(matchID int) []byte {
 	reqURL := util.Join(util.MATCH_URL, "/live/", strconv.Itoa(matchID))
 	resp, err := http.Get(reqURL)
 	util.Check(err)
@@ -44,7 +44,7 @@ func GetLiveTeamMatch(matchID int) string {
 }
 
 // GetLiveTeamMatchBoard - Returns live team match board details
-func GetLiveTeamMatchBoard(matchID int, board int) string {
+func GetLiveTeamMatchBoard(matchID int, board int) []byte {
 	reqURL := util.Join(util.MATCH_URL, "/live", strconv.Itoa(matchID), "/", strconv.Itoa(board))
 	resp, err := http.Get(reqURL)
 	util.Check(err)

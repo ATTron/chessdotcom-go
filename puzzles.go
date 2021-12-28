@@ -7,7 +7,7 @@ import (
 )
 
 // GetDailyPuzzle - Returns details about the daily puzzle
-func GetDailyPuzzle() string {
+func GetDailyPuzzle() []byte {
 	reqURL := util.Join(util.PUZZLE_URL)
 	resp, err := http.Get(reqURL)
 	util.Check(err)
@@ -19,7 +19,7 @@ func GetDailyPuzzle() string {
 }
 
 // GetRandomPuzzle - Returns details about a random puzzle
-func GetRandomPuzzle() string {
+func GetRandomPuzzle() []byte {
 	reqURL := util.Join(util.PUZZLE_URL, "/random")
 	resp, err := http.Get(reqURL)
 	util.Check(err)
