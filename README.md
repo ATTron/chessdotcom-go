@@ -18,4 +18,4 @@ An unofficial, simple, lighweight API wrapper for chess.com written in go
     }
 ```
 
-Complete Documentation can be found at https://pkg.go.dev/github.com/attron/chessdotcom-go  
+Complete Documentation can be found at https://pkg.go.dev/github.com/ATTron/chessdotcom-go 
