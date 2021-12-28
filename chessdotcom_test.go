@@ -27,5 +27,19 @@ func TestEndpoints(t *testing.T) {
 			// }
 
 		})
+
+		t.Run("checking player games", func(t *testing.T) {
+			playerGames := GetPlayerGames(username)
+			t.Log("Got player games", playerGames)
+			playerGames = GetPlayerGamesArchive(username, 2021, 11)
+			t.Log("Got player archives", playerGames)
+			playerGames = GetPlayerMatches(username)
+			t.Log("Got player matches", playerGames)
+			playerGames = GetPlayerTournaments(username)
+			t.Log("Got player tournaments", playerGames)
+
+			// 	playerGames := GetPlayerGamesArchivePGN(username, 2021, 11)
+			// 	t.Log("Got player archives PGN", playerGames)
+		})
 	})
 }
