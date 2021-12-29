@@ -7,7 +7,7 @@ import (
 )
 
 // GetClub - Returns details about a club
-func GetClub(clubID string) string {
+func GetClub(clubID string) map[string]interface{} {
 	reqURL := util.Join(util.CLUB_URL, clubID)
 	resp, err := http.Get(reqURL)
 	util.Check(err)
@@ -19,7 +19,7 @@ func GetClub(clubID string) string {
 }
 
 // GetClubMembers - Returns details a specific club members
-func GetClubMembers(clubID string) string {
+func GetClubMembers(clubID string) map[string]interface{} {
 	reqURL := util.Join(util.CLUB_URL, clubID, "/members")
 	resp, err := http.Get(reqURL)
 	util.Check(err)
@@ -31,7 +31,7 @@ func GetClubMembers(clubID string) string {
 }
 
 // GetClubMatches - Returns club match details
-func GetClubMatches(clubID string) string {
+func GetClubMatches(clubID string) map[string]interface{} {
 	reqURL := util.Join(util.CLUB_URL, clubID, "/matches")
 	resp, err := http.Get(reqURL)
 	util.Check(err)

@@ -8,7 +8,7 @@ import (
 )
 
 // GetTournament - Returns tournament details
-func GetTournament(tournamentID string) string {
+func GetTournament(tournamentID string) map[string]interface{} {
 	reqURL := util.Join(util.TOURNAMENT_URL, tournamentID)
 	resp, err := http.Get(reqURL)
 	util.Check(err)
@@ -20,7 +20,7 @@ func GetTournament(tournamentID string) string {
 }
 
 // GetTournamentRound - Returns tournament round details
-func GetTournamentRound(tournamentID string, round int) string {
+func GetTournamentRound(tournamentID string, round int) map[string]interface{} {
 	reqURL := util.Join(util.TOURNAMENT_URL, tournamentID, strconv.Itoa(round))
 	resp, err := http.Get(reqURL)
 	util.Check(err)
@@ -32,7 +32,7 @@ func GetTournamentRound(tournamentID string, round int) string {
 }
 
 // GetTournamentRoundGroup - Returns tournament round group details
-func GetTournamentRoundGroup(tournamentID string, round int, group int) string {
+func GetTournamentRoundGroup(tournamentID string, round int, group int) map[string]interface{} {
 	reqURL := util.Join(util.TOURNAMENT_URL, tournamentID, strconv.Itoa(round), "/", strconv.Itoa(group))
 	resp, err := http.Get(reqURL)
 	util.Check(err)
