@@ -6,7 +6,7 @@ An unofficial, simple, lighweight API wrapper for chess.com written in go
 ```bash
     go get -u "github.com/ATTron/chessdotcom-go"
 ```
-### If you just need the json string
+### If you just need the JSON string
 ```
     import chess "github.com/ATTron/chessdotcom-go"
 
@@ -33,6 +33,8 @@ An unofficial, simple, lighweight API wrapper for chess.com written in go
     func main() {
         userStats := chess.GetUserStats(username)
         blitz := gjson.Get(userStats, "chess_blitz")
-        println(blitz.String())
+        fmt.Println(blitz.String())
+        rapid := gjson.Get(userStats, "chess_rapid.record")
+        fmt.Println(rapid.String())
     }
 ```
